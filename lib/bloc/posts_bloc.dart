@@ -23,16 +23,16 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
             )) :
             emit(state.copyWith(
               postStatus: PostStatus.success,
-              posts: posts,
+              postsList: posts,
               hasReachedMax: false,
             ));
           } else {
-            final posts = await PostsService().getAllPosts(startIndex: state.posts.length);
+            final posts = await PostsService().getAllPosts(startIndex: state.postsList.length);
             return posts.isEmpty? 
             emit(state.copyWith(hasReachedMax: true)) :
             emit(state.copyWith(
               postStatus: PostStatus.success,
-              posts: List.of(state.posts)..addAll(posts),
+              postsList: List.of(state.postsList)..addAll(posts),
               hasReachedMax: false
             ));
           }

@@ -4,26 +4,26 @@ enum PostStatus { loading, success, failure }
 
 class PostsState extends Equatable {
   final PostStatus postStatus;
-  final List<PostsModel> posts;
+  final List<PostsModel> postsList;
   final bool hasReachedMax;
   final String errorMessage;
 
   const PostsState({
     this.postStatus = PostStatus.loading,
-    this.posts = const [],
+    this.postsList = const [],
     this.hasReachedMax = false,
     this.errorMessage = "",
   });
 
   PostsState copyWith({
     PostStatus? postStatus,
-    List<PostsModel>? posts,
+    List<PostsModel>? postsList,
     bool? hasReachedMax,
     String? errorMessage,
   }) {
     return PostsState(
       postStatus: postStatus ?? this.postStatus,
-      posts: posts ?? this.posts,
+      postsList: postsList ?? this.postsList,
       hasReachedMax: hasReachedMax ?? this.hasReachedMax,
       errorMessage: errorMessage ?? this.errorMessage,
     );
@@ -32,7 +32,7 @@ class PostsState extends Equatable {
   @override
   List<Object> get props => [
         postStatus,
-        posts,
+        postsList,
         hasReachedMax,
         errorMessage,
       ];
