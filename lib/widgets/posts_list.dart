@@ -19,7 +19,7 @@ class _PostsListState extends State<PostsList> {
     final maxScroll = scrollController.position.maxScrollExtent;
     final currentScrollPosition = scrollController.offset;
 
-    if (currentScrollPosition >= maxScroll * 0.9) {
+    if (currentScrollPosition >= (maxScroll * 0.9)) {
       context.read<PostsBloc>().add(GetAllPostsEvent());
     } 
   }

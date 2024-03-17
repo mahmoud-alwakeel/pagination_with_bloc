@@ -19,7 +19,7 @@ class PostsBody extends StatelessWidget {
        case PostStatus.success:
         return PostsList(postsList: state.posts);
        case PostStatus.failure:
-        return const CustomError(message: "errorrrrrr");
+        return CustomError(message: state.errorMessage);
      }
     });  
 }

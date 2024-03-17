@@ -1,3 +1,4 @@
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:pagination_with_bloc/models/posts_model.dart';
@@ -44,6 +45,6 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
           );
         }
       }
-    });
+    }, transformer: droppable());
   }
 }
